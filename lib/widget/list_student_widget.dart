@@ -17,6 +17,19 @@ class ListStudentWidget extends StatelessWidget {
             return ListTile(
               title: Text(data.name),
               subtitle: Text(data.age),
+              trailing: IconButton(
+                onPressed: () {
+                  if (data.id != null) {
+                    deleteStudentList(data.id!);
+                  } else {
+                    print('id');
+                  }
+                },
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+              ),
             );
           },
           separatorBuilder: (context, index) {

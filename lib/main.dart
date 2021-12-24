@@ -4,6 +4,8 @@ import 'package:flutter_hive/screen_home.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(StudentListAdapter().typeId)) {
     Hive.registerAdapter(StudentListAdapter());
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
